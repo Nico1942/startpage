@@ -1,0 +1,78 @@
+:root {
+    --backgroound: #282A36;
+    --foreground: #F8F8F2;
+    --accent: #6272A4;
+}
+
+/* Light Mode
+:root {
+    --backgroound: #DAE4D9;
+    --foreground: #546A5E;
+    --accent: #99A098;
+}
+*/
+
+html {
+    background-color: var(--backgroound);
+    scroll-behavior: smooth;
+}
+
+
+.screen {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    background-image: url("../img/bg.png");
+    background-repeat: repeat;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto min-content auto;
+    grid-gap: 20px;
+    place-items: center; /* Centrar horizontalmente */
+    background-color: var(--backgroound); /* Solo para visualizar */
+    color: var(--foreground);
+    font-family: 'PF TEMPESTA FIVE CONDENSED';
+    padding: 5rem;
+    border-radius: 10px;
+}
+
+.container: ; > div:first-child { justify-self: end; }
+.container: ; > div:last-child { justify-self: start; }
+
+.accent { color: var(--accent); }
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+a {
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--foreground);
+    display: inline-block;
+}
+
+.links > a:after {
+    content: ' |';
+    display: inline;
+}
+
+a:last-child:after { content: ''; }
+
+.category {
+    display: grid;
+    grid-template-columns: auto min-content;
+    align-items: center;
+}
+
+.category > div { display: inline-flex; }
+.category > div:nth-child(2n-1) { justify-self: end; }
+.category > div:nth-child(2n) { justify-self: start; }
