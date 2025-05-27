@@ -1,19 +1,20 @@
 :root {
-    --backgroound: #282A36;
+    --background: #282A36;
     --foreground: #F8F8F2;
     --accent: #6272A4;
+    --bg-img: url("../img/bg.png");
 }
 
-/* Light Mode
-:root {
-    --backgroound: #DAE4D9;
+/* Light Mode */
+.light {
+    --background: #DAE4D9;
     --foreground: #546A5E;
     --accent: #99A098;
+    --bg-img: url("../img/bg-light.png");
 }
-*/
 
 html {
-    background-color: var(--backgroound);
+    background-color: var(--background);
     scroll-behavior: smooth;
 }
 
@@ -23,7 +24,7 @@ html {
     width: 100vw;
     display: grid;
     place-items: center;
-    background-image: url("../img/bg.png");
+    background-image: var(--bg-img);
     background-repeat: repeat;
 }
 
@@ -32,7 +33,7 @@ html {
     grid-template-columns: auto min-content auto;
     grid-gap: 20px;
     place-items: center; /* Centrar horizontalmente */
-    background-color: var(--backgroound); /* Solo para visualizar */
+    background-color: var(--background); /* Solo para visualizar */
     color: var(--foreground);
     font-family: 'PF TEMPESTA FIVE CONDENSED';
     padding: 5rem;
@@ -76,3 +77,66 @@ a:last-child:after { content: ''; }
 .category > div { display: inline-flex; }
 .category > div:nth-child(2n-1) { justify-self: end; }
 .category > div:nth-child(2n) { justify-self: start; }
+
+#themeToggleContainer {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      background: var(--background);
+      border: 2px solid var(--accent);
+      border-radius: 1.5rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    /* Switch ocultando checkbox */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--accent);
+      border-radius: 34px;
+      transition: 0.3s;
+    }
+
+    .slider::before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--background);
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    /* Íconos */
+    #themeIcon {
+      font-size: 1.2rem;
+    }
